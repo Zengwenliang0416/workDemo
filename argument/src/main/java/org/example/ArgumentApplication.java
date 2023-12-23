@@ -10,18 +10,16 @@ import org.springframework.web.bind.annotation.RestController;
  * @author 曾文亮
  * @version 1.0.0
  * @email wenliang_zeng416@163.com
- * @date 2023年12月18日 21:45:50
+ * @date 2023年12月21日 22:02:24
  * @packageName org.example
- * @className ${NAME}
- * @describe TODO
+ * @className ArgumentApplication
+ * @describe 参数测试应用
  */
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 @SpringBootApplication
 @RestController
-public class HelloApplication {
+public class ArgumentApplication {
     public static void main(String[] args) {
-        SpringApplication.run(HelloApplication.class, args);
+        SpringApplication.run(ArgumentApplication.class, args);
     }
     @PostMapping("/")
     public String processRequest(@RequestBody String requestBody) {

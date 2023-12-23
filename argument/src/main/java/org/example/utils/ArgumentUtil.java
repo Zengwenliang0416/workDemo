@@ -1,27 +1,21 @@
-package org.example;
+package org.example.utils;
 
 /**
  * @author 曾文亮
  * @version 1.0.0
  * @email wenliang_zeng416@163.com
- * @date 2023年12月18日 21:34:03
- * @packageName org.example
- * @className ${NAME}
- * @describe TODO
+ * @date 2023年12月21日 21:58:50
+ * @packageName org.example.utils
+ * @className ArgumentUtil
+ * @describe 与参数相关的工具类
  */
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
-public class Main {
-    /**
-     * 将字符串表示的文件大小转换为字节数
-     * @param argumentSize 字符串表示的文件大小，格式为：数字+单位
-     * @return 字节数
-     * @throws IllegalArgumentException 字符串格式不合法时抛出异常
-     */
+public class ArgumentUtil {
+    private ArgumentUtil(){
+
+    }
     public static Integer convertToBytes(String argumentSize) {
-        Integer byteSize;
-        String unit;
-        String[] parts = argumentSize.replaceAll(" ","").split("(?i)(?<=\\D)(?=\\d)|(?<=\\d)(?=\\D)");
+        int byteSize;
+        String[] parts = argumentSize.replace(" ","").split("(?i)(?<=\\D)(?=\\d)|(?<=\\d)(?=\\D)");
 
         if (parts.length == 1) {
             // 只有数字，没有单位，默认单位为Byte
@@ -33,7 +27,7 @@ public class Main {
             }
         } else if (parts.length == 2) {
             byteSize = Integer.parseInt(parts[0]);
-            unit = parts[1].toLowerCase();
+            String unit = parts[1].toLowerCase();
 
             switch (unit) {
                 case "b":
@@ -56,9 +50,4 @@ public class Main {
         }
     }
 
-    public static void main(String[] args) {
-        // Press Opt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.println(convertToBytes("22 mb"));
-    }
 }
