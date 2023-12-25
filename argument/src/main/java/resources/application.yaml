@@ -1,0 +1,10 @@
+server:
+  tomcat:
+    max-swallow-size: 1B
+  port: 8081
+#    max-http-form-post-size: 1B
+logging:
+  level:
+    root: debug
+
+#  max-http-header-size: 1B

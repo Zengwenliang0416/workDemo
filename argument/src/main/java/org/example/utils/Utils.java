@@ -1,17 +1,7 @@
-package org.example;
+package org.example.utils;
 
-/**
- * @author 曾文亮
- * @version 1.0.0
- * @email wenliang_zeng416@163.com
- * @date 2023年12月18日 21:34:03
- * @packageName org.example
- * @className ${NAME}
- * @describe TODO
- */
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
-public class Main {
+public class Utils {
+
     /**
      * 将字符串表示的文件大小转换为字节数
      * @param argumentSize 字符串表示的文件大小，格式为：数字+单位
@@ -38,16 +28,16 @@ public class Main {
             switch (unit) {
                 case "b":
                 case "byte":
-                    return byteSize;
+                    return multiplyWithOverflowCheck(byteSize);
                 case "k":
                 case "kb":
-                    return byteSize * 1024;
+                    return multiplyWithOverflowCheck(byteSize, 1024);
                 case "m":
                 case "mb":
-                    return byteSize * 1024 * 1024;
+                    return multiplyWithOverflowCheck(byteSize, 1024, 1024);
                 case "g":
                 case "gb":
-                    return byteSize * 1024 * 1024 * 1024;
+                    return multiplyWithOverflowCheck(byteSize, 1024, 1024, 1024);
                 default:
                     throw new IllegalArgumentException("Invalid unit: " + unit);
             }
@@ -56,9 +46,22 @@ public class Main {
         }
     }
 
-    public static void main(String[] args) {
-        // Press Opt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.println(convertToBytes("22 mb"));
+    /**
+     * 判断是否发生整数溢出
+     * @param numbers
+     * @return
+     */
+    public static int multiplyWithOverflowCheck(int... numbers) {
+        int result = 1;
+        for (int number : numbers) {
+            if (number > 0 && Integer.MAX_VALUE / number < result) {
+                throw new IllegalArgumentException("Integer overflow");
+            }
+            if (number < 0 && Integer.MIN_VALUE / number > result) {
+                throw new IllegalArgumentException("Integer overflow");
+            }
+            result *= number;
+        }
+        return result;
     }
 }
