@@ -21,13 +21,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-<<<<<<< HEAD
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>
-=======
->>>>>>> d0a2c0244a33cd01e2dc1b319f6ebd3d97fdc1fe
     </dependencies>
 
 </project>

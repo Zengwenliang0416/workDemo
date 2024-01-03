@@ -1,5 +1,4 @@
 package org.example.utils;
-<<<<<<<< HEAD:argument/src/main/java/org/example/utils/Utils.java
 
 public class Utils {
 
@@ -9,25 +8,9 @@ public class Utils {
      * @return 字节数
      * @throws IllegalArgumentException 字符串格式不合法时抛出异常
      */
-========
-
-/**
- * @author 曾文亮
- * @version 1.0.0
- * @email wenliang_zeng416@163.com
- * @date 2023年12月21日 21:58:50
- * @packageName org.example.utils
- * @className ArgumentUtil
- * @describe 与参数相关的工具类
- */
-public class ArgumentUtil {
-    private ArgumentUtil(){
-
-    }
->>>>>>>> d0a2c0244a33cd01e2dc1b319f6ebd3d97fdc1fe:argument/src/main/java/org/example/utils/ArgumentUtil.java
     public static Integer convertToBytes(String argumentSize) {
         int byteSize;
-        String[] parts = argumentSize.replace(" ","").split("(?i)(?<=\\D)(?=\\d)|(?<=\\d)(?=\\D)");
+        String[] parts = argumentSize.replace(" ", "").split("(?i)(?<=\\D)(?=\\d)|(?<=\\d)(?=\\D)");
 
         if (parts.length == 1) {
             // 只有数字，没有单位，默认单位为Byte
@@ -62,9 +45,9 @@ public class ArgumentUtil {
         }
     }
 
-<<<<<<<< HEAD:argument/src/main/java/org/example/utils/Utils.java
     /**
      * 判断是否发生整数溢出
+     *
      * @param numbers
      * @return
      */
@@ -81,6 +64,5 @@ public class ArgumentUtil {
         }
         return result;
     }
-========
->>>>>>>> d0a2c0244a33cd01e2dc1b319f6ebd3d97fdc1fe:argument/src/main/java/org/example/utils/ArgumentUtil.java
+
 }
